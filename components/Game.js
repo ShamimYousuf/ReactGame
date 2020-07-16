@@ -17,22 +17,18 @@ export default class Game extends React.Component {
     }
 
     jumpTo(step) {
-        console.log('I am Jumpto called', step)
         this.setState({
             stepNumber: step,
             xIsNext: step % 2 === 0,
             history: this.state.history.slice(0, step + 1),
         })
-        console.log('I am Jumpto after ', this.state)
     }
 
     handleClick(i) {
-        console.log('I am called handleclick me ', this.state);
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
         const winner = calculateWinner(squares);
-        console.log(winner, 'winner')
         if (winner || squares[i]) {
             return;
         }
@@ -49,7 +45,6 @@ export default class Game extends React.Component {
         const history = this.state.history;
         const current = history[history.length - 1];
         const winner = calculateWinner(current.squares);
-        console.log(history, 'history')
         const moves = history.map((step, move) => {
             const desc = move ? 'Go to #' + move : 'Start the Game';
             return (
@@ -78,7 +73,6 @@ export default class Game extends React.Component {
 }
 
 function calculateWinner(squares) {
-    console.log('I am called')
     const winnerLines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -92,7 +86,6 @@ function calculateWinner(squares) {
     for (let i = 0; i < winnerLines.length; i++) {
         
         const [a, b, c] = winnerLines[i];
-        console.log('winner for', squares[a] )
         if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
             return squares[a];
         }
