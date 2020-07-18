@@ -7,6 +7,10 @@ const Square = ({ value, onClick }) => (
   </button>
 );
 
+Square.defaultProps = {
+  value: '',
+};
+
 Square.propTypes = {
   value: PropTypes.string,
   onClick: PropTypes.func.isRequired,
