@@ -7,7 +7,8 @@
     "test": "jest",
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "lint": "eslint *.js components/*.js --fix"
+    "lint": "eslint *.js components/*.js --fix",
+    "server": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/ShamimYousuf/ReactGame#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "parcel-bundler": "^1.12.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
